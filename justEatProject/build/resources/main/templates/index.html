@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Just Eat Restaurants</title>
+</head>
+<body>
+<h1>Restaurants</h1>
+<div th:if="${error}">
+    <p th:text="${error}">Error</p>
+</div>
+<div th:unless="${error}">
+    <ul>
+        <!-- Loop over the restaurants attribute added to the model in the controller -->
+        <li th:each="restaurant : ${restaurants}">
+            <h2 th:text="${restaurant.name}">Restaurant Name</h2>
+            <p th:text="'Cuisines: ' + ${restaurant.cuisines}">Cuisines</p>
+            <p th:text="'Rating: ' + ${restaurant.rating}">Rating</p>
+            <p th:text="'Address: ' + ${restaurant.address}">Address</p>
+        </li>
+    </ul>
+</div>
+</body>
+</html>
